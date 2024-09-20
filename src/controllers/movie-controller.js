@@ -1,4 +1,5 @@
 import { Router } from "express";
+import movieService from "../services/movie-service.js";
 
 const router = Router();
 
@@ -7,11 +8,13 @@ router.get('/create', (req, res) => {
     res.render('movies/create');
 });
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
     const movieData = req.body;
 
-    console.log(movieData);
-    
+    // TODO: save movie data
+    await movieService.create(movieData);
+
+    res.end();
     
 })
 
