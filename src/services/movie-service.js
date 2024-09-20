@@ -3,9 +3,11 @@ import uniqid from 'uniqid';
 
 const getAll = () => movieData.getAll();
 
-const create = (data) => {
-    data.id = uniqid();
-    return movieData.create(data);
+const create = (movie) => {
+    movie.id = uniqid();
+    movie.rating = Number(movie.rating);
+
+    return movieData.create(movie);
 }
 
 const getOne = async (movieId) => {
