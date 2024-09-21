@@ -43,6 +43,16 @@
       "rating": 10,
       "description": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
       "id": "i2w27lkm1atvb95"
+    },
+    {
+      "title": "The Meg",
+      "genre": "Horror",
+      "director": "Jon Turteltaub",
+      "year": "2018",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMWZjYjgxMzEtYTE1MS00M2RlLWJjOTUtZDA5ODM2YWQ4Y2FhXkEyXkFqcGc@._V1_.jpg",
+      "rating": 5,
+      "description": "A group of scientists exploring the Marianas Trench encounter the largest marine predator that has ever existed - the Megalodon.",
+      "id": "i2w29v4m1axak15"
     }
   ]
 }
