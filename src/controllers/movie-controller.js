@@ -27,7 +27,7 @@ router.get('/:movieId/details', async (req, res) => {
 
 router.get('/search', async (req, res) => {
     const filter = req.query;
-    const movies = await movieService.getAll(filter);
+    const movies = await movieService.getAll(filter).lean();
     
 
     res.render('home', { isSearch: true, movies, filter });
@@ -35,7 +35,7 @@ router.get('/search', async (req, res) => {
 
 router.get('/:movieId/attach', async (req, res) => {
     const movie = await movieService.getOne(req.params.movieId).lean();
-    const casts = await castService.getAll().lean();
+    const casts = await castService.getAllWithout(movie.casts).lean();
     res.render('movies/attach', { movie, casts });
 });
 

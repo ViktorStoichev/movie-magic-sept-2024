@@ -8,6 +8,7 @@ const movieSchema = new Schema({
     genre: {
         type: String,
         required: true,
+        //lowercase: true
     },
     director: {
         type: String,
