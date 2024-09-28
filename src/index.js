@@ -1,5 +1,4 @@
 import express from 'express';
-import handlebars from 'express-handlebars';
 import routes from './routes.js';
 import expressInit from './config/expressInit.js';
 import { handlebarsInit } from './config/handlebarsInit.js';
