@@ -35,6 +35,10 @@ router.get('/search', async (req, res) => {
     res.render('home', { isSearch: true, movies, filter });
 });
 
+router.get('/:movieId/attach', (req, res) => {
+    res.render('movies/attach');
+})
+
 function getRatingViewData(rating) {
     if (!Number.isInteger(rating)) {
         return 'n\\a';
