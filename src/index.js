@@ -1,18 +1,15 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import routes from './routes.js';
+import expressInit from './config/expressInit.js';
+import { handlebarsInit } from './config/handlebarsInit.js';
 
 const app = express();
 const port = 5000;
 
-app.engine('hbs', handlebars.engine({
-    extname: 'hbs',
-}));
-app.set('view engine', 'hbs');
-app.set('views', 'src/views');
+handlebarsInit(app);
+expressInit(app);
 
-app.use(express.urlencoded({extended: false}));
-app.use(express.static('static'));
 app.use(routes);
 
 
