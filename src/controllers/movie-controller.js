@@ -67,4 +67,13 @@ router.get('/:movieId/edit', async (req, res) => {
     res.render('movies/edit', { movie });
 });
 
+router.post('/:movieId/edit', async (req, res) => {
+    const updatedMovieData = req.body;
+    const movieId = req.params.movieId;
+
+    await movieService.edit(movieId, updatedMovieData);
+
+    res.redirect(`/movies/${movieId}/details`);
+});
+
 export default router;
