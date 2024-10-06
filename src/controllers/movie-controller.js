@@ -11,18 +11,21 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const movieData = req.body;
+    const ownerId = req.user?._id;
 
     // TODO: save movie data
-    await movieService.create(movieData);
+    await movieService.create(movieData, ownerId);
 
     res.redirect('/');
 });
 
 router.get('/:movieId/details', async (req, res) => {
-    console.log(req.user?.email);
+    console.log(req.user?._id);
     
     const movieId = req.params.movieId
     const movie = await movieService.getOne(movieId).lean();
+
+    const isOwner = req.user?._Id == 
 
     res.render('movies/details', { movie });
 });
