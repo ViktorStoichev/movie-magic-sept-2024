@@ -7,10 +7,10 @@ router.get('/register', (req, res) => {
     res.render('auth/register');
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     const { email, password, rePassword } = req.body;
 
-    authService.register(email, password);
+    await authService.register(email, password);
     res.redirect('/auth/login');
 });
 
@@ -18,10 +18,10 @@ router.get('/login', (req, res) => {
     res.render('auth/login');
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log(email, password);
     
+    const token = await authService.login(email, password);
 
     res.redirect('/');
 });
