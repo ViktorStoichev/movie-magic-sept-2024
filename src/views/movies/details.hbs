@@ -20,14 +20,13 @@
                 </div>
 
                 <p class="disc">Description: {{movie.description}}</p>
-
-                <a style="display: inline-block;" class="details" href="/movies/{{movie._id}}/attach">Attach</a>
             </div>
 
             {{#if isOwner}}
             <div class="details-btn">
-                <button id="edit-button">Edit</button>
-                <button id="delete-button">Delete</button>
+                <a href="/movies/{{movie._id}}/edit" id="edit-button">Edit</a>
+                <a href="/movies/{{movie._id}}/delete" id="delete-button">Delete</a>
+                <a style="display: inline-block;" id="attach-button" href="/movies/{{movie._id}}/attach">Attach</a>
             </div>
             {{/if}}
         </div>
