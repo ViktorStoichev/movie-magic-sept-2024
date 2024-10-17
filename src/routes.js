@@ -10,7 +10,7 @@ const router = Router();
 
 router.use(homeController);
 router.use('/movies', movieController);
-router.use('/cast', isAuth, castController);
+router.use('/casts', isAuth, castController);
 router.use('/auth', authController);
 router.all('*', (req, res) => {
     res.render('404');

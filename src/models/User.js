@@ -2,10 +2,16 @@ import { Schema, model } from "mongoose";
 import bcrypt from 'bcrypt';
 
 const userSchema = new Schema({
-    email: String,
+    email: {
+        type: String,
+        unique: true,
+        minLength: [10, 'Email is too short!'],
+        validate: [/@[A-Za-z0-9]+.[A-Za-z0-9]+$/, 'Invalid email address!']
+    },
     password: {
         type: String,
-        minLength: [3, 'Your password is too short!'],
+        minLength: [6, 'Your password is too short!'],
+        validate: [/^[A-Za-z0-9]+$/, 'Invalid password characters!']
     }
 });
 

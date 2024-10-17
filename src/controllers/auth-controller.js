@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authService } from "../services/auth-service.js";
+import { getErrorMessage } from "../utils/errorUtils.js";
 
 const router = Router();
 
@@ -10,7 +11,16 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     const { email, password, rePassword } = req.body;
 
-    await authService.register(email, password);
+    if (password !== rePassword) {
+        console.log('Passwords missmatch!');
+        return res.status(400).end();
+    }
+
+    try {
+        await authService.register(email, password);
+    } catch (err) {
+        return res.render('auth/register', { error: getErrorMessage(err), email })
+    }
     const token = await authService.login(email, password);
 
     res.cookie('auth', token, { httpOnly: true });
